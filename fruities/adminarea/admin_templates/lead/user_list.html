@@ -1,0 +1,143 @@
+{%extends 'head/head.html'%}
+{% load static %}
+
+{% block 'content' %}
+
+
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+  
+  <ul class="sidebar-nav" id="sidebar-nav">
+
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'admin_panel' %}">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'user_list' %}">
+        <i class="bi bi-card-list"></i>
+        <span>Users</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'category_man' %}">
+        <i class="bi bi-card-list"></i>
+        <span>Catogory</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'products' %}">
+        <i class="bi bi-card-list"></i>
+        <span>Products</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'order_manage' %}">
+          <i class="bi bi-card-list"></i>
+        <span>Orders</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'viewcoupon' %}">
+          <i class="bi bi-card-list"></i>
+        <span>coupon</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'addcoupon' %}">
+          <i class="bi bi-card-list"></i>
+        <span>Add coupon</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'salesreport' %}">
+          <i class="bi bi-card-list"></i>
+        <span>Sales Report</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'admin_login' %}" role="button">
+        <i class="bi bi-box-arrow-in-right"></i>
+        {% if request.user.is_authenticated %}
+        <span>logout</span>
+        {% else %}
+        <span>login</span>
+        {% endif %}
+      </a>
+    </li><!-- End Register Page Nav -->
+  </ul>
+
+</aside><!-- End Sidebar-->
+<br>
+
+<main class="main" id="main">
+<div class="card shadow">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">All Registered Users</h5>
+        <div class="container-fluid">
+            <table class="table table-bordered table-sm" id="example">
+                <thead>
+                <tr>
+                    <th>S.No.</th>
+                    {% comment %} <th>Image</th> {% endcomment %}
+                    <th>User Name</th>
+                    {% comment %} <th>Last Name</th> {% endcomment %}
+                    {% comment %} <th>Email</th> {% endcomment %}
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                
+                {% for i in page_obj %}
+                {% if not i.is_superuser %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    {% comment %} <td><img src="{{i.image.url}}" style="width:80px;height:80px"/></td> {% endcomment %}
+                    {% comment %} <td>{{i.first_name}}</td> {% endcomment %}
+                    {% comment %} <td>{{i.last_name}}</td> {% endcomment %}
+                    <td>{{i.username}}</td>
+                    <td>
+                        <form method="POST" action="{% url 'blockuser' i.id %}">
+                            {% csrf_token %}
+                            {% if i.is_active %}
+                              <button type="submit" onclick="return confirm('Are You Sure want to block this user ?')" class="btn btn-danger">Block</button>
+                            {% else %}
+                              <button type="submit" onclick="return confirm('Are You Sure want to unblock this user ?')" class="btn btn-primary">Unblock</button>
+                            {% endif %}
+                        </form>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">&lsaquo; previous</a>
+        {% endif %}
+
+        <span class="current-page">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next &rsaquo;</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+</main>
+{% endblock  %}

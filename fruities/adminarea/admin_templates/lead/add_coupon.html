@@ -1,0 +1,93 @@
+{%extends 'head/head.html'%}
+{% load static %}
+
+{% block 'content' %}
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+  
+    <ul class="sidebar-nav" id="sidebar-nav">
+  
+      <li class="nav-item">
+        <a class="nav-link " href="{% url 'admin_panel' %}">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+  
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'user_list' %}">
+          <i class="bi bi-card-list"></i>
+          <span>Users</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+  
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'category_man' %}">
+          <i class="bi bi-card-list"></i>
+          <span>Catogory</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+  
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'products' %}">
+          <i class="bi bi-card-list"></i>
+          <span>Products</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'order_manage' %}">
+            <i class="bi bi-card-list"></i>
+          <span>Orders</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'viewcoupon' %}">
+            <i class="bi bi-card-list"></i>
+          <span>coupon</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'addcoupon' %}">
+            <i class="bi bi-card-list"></i>
+          <span>Add coupon</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'salesreport' %}">
+            <i class="bi bi-card-list"></i>
+          <span>Sales Report</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'admin_login' %}" role="button">
+          <i class="bi bi-box-arrow-in-right"></i>
+          {% if request.user.is_authenticated %}
+          <span>logout</span>
+          {% else %}
+          <span>login</span>
+          {% endif %}
+        </a>
+      </li><!-- End Register Page Nav -->
+    </ul>
+  
+  </aside><!-- End Sidebar-->
+  
+<main id="main" class="main">
+<div class="container">
+    <div class="card shadow col-lg-8">
+        <div class="card-body"> 
+          <h5 class="p-2 text-danger" style="border-bottom: 2px solid orange;">Add Coupon</h5>
+            <div class="container">
+                <form  method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary "style=" margin-left:300 ;">Add Coupon</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</main><!-- End #main -->
+
+{% endblock  %}

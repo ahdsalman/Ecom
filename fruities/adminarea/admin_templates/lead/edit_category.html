@@ -1,0 +1,119 @@
+{% extends 'head/head.html' %}
+{% load static %}
+{% block 'content' %}
+
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+  
+  <ul class="sidebar-nav" id="sidebar-nav">
+
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'admin_panel' %}">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'user_list' %}">
+        <i class="bi bi-card-list"></i>
+        <span>Users</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'category_man' %}">
+        <i class="bi bi-card-list"></i>
+        <span>Catogory</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'products' %}">
+        <i class="bi bi-card-list"></i>
+        <span>Products</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'order_manage' %}">
+          <i class="bi bi-card-list"></i>
+        <span>Orders</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'viewcoupon' %}">
+          <i class="bi bi-card-list"></i>
+        <span>coupon</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'addcoupon' %}">
+          <i class="bi bi-card-list"></i>
+        <span>Add coupon</span>
+      </a>
+    </li><!-- End Register Page Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'salesreport' %}">
+          <i class="bi bi-card-list"></i>
+        <span>Sales Report</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="{% url 'admin_login' %}" role="button">
+        <i class="bi bi-box-arrow-in-right"></i>
+        {% if request.user.is_authenticated %}
+        <span>logout</span>
+        {% else %}
+        <span>login</span>
+        {% endif %}
+      </a>
+    </li><!-- End Register Page Nav -->
+  </ul>
+
+</aside><!-- End Sidebar-->
+<br><br><br>
+<main class="main" id="main">
+<div class="card shadow">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">Edit Category</h5>
+        <div class="container-fluid">
+            <form action="{% url 'edit_Category' category.slug %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Category name</label>
+                            {{ form.category_name }}
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Slug</label>
+                            {{ form.slug }}
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Product Image</label>
+                            {{ form.cat_image }}
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Description</label>
+                            {{ form.description }}
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Submit" class="m-2 px-3 btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+</main>
+
+{% endblock %}

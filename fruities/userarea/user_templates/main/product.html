@@ -1,0 +1,61 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- <div style="background-color: black;"> -->
+<div class="cart-buttons">
+    <a class="boxed-btn" style="margin-left: 200px;margin-top: 120px;">Prodects</a>
+    
+</div>
+<div class="hero_search_form d-flex" style="justify-content: space-around">
+    <form action="{% url 'search' %}" method="GET">
+       <div class="d-flex  mb-3" style="justify-content: space-around">
+        <div>
+            <input type="text" class="form-control" placeholder="Search hear" name="keyword">
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit">SEARCH</button>
+        </div>
+       </div>
+       
+    </form>
+</div>
+<div class="row">
+    {% for i in products %}
+<div class="col-lg-4 col-md-6 text-center ">
+    
+    <div class="single-product-item">
+        <div class="product-image">
+            <a href="single-product.html"><img src="{{i.image_1.url}}" alt=""></a>
+        </div>
+        <h3>{{i.product_name}}</h3>
+        <p class="product-price"><span>Per Kg</span>$ {{i.price}}</p>
+        {% comment %} <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> {% endcomment %}
+        <a href="{% url 'details' i.id %}" class="cart-btn"> Product Details</a>
+    </div>
+    
+</div>
+{% endfor %}
+</div>
+
+<div class="pagination" style="margin-left: 10px;">
+    <span class="step-links">
+        {% if pro.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ pro.previous_page_number }}">&lsaquo; previous</a>
+        {% endif %}
+
+        <span class="current-page">
+            Page {{ pro.number }} of {{ pro.paginator.num_pages }}.
+        </span>
+
+        {% if pro.has_next %}
+            <a href="?page={{ pro.next_page_number }}">next &rsaquo;</a>
+            <a href="?page={{ pro.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+</div>
+
+{% endblock  %}

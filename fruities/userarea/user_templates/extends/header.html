@@ -1,0 +1,140 @@
+{% load static %}
+<!--PreLoader-->
+<div class="loader">
+    <div class="loader-inner">
+        <div class="circle"></div>
+    </div>
+</div>
+<!--PreLoader Ends-->
+
+<!-- header -->
+<div class="top-header-area" id="sticker">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 text-center">
+                <div class="main-menu-wrap">
+                    <!-- logo -->
+                    <div class="site-logo">
+                        <a href="./index.html">
+                            <!-- <img src="{%static 'img/logo.png'%}" alt=""> -->
+                            <h3 class="logo" style="color: #F28123;">Fruities</h3>
+                        </a>
+                    </div> 
+                    <!-- logo -->
+
+                    <!-- menu start -->
+                    <nav class="main-menu">
+                        <ul>
+                            <li class="current-list-item"><a href="{% url 'home' %}" style="color: #F28123;">Home</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'static' %}">Static Home</a></li>
+                                    <li><a href="{% url 'slider' %}">Slider Home</a></li>
+                                </ul>
+                            </li>
+                        {% comment %} <li><a href="#">Pages</a>
+                            <ul class="sub-menu"> {% endcomment %}
+                                <li><a href="{% url 'about' %}" style="color: #F28123;">About</a></li>
+                                <li><a href="{% url 'contact' %}" style="color: #F28123;">Contact</a></li>
+                                <li><a href="{% url 'product' 0 %}" style="color: #F28123;">Shop</a></li>
+                                <li><a href="{% url 'myaccount' %}" style="color: #F28123;">Profile</a></li>
+                                {% if request.user.is_superuser %}
+                                <li><a href="{% url 'admin_login' %}" style="color: #F28123;">Admin Panel</a></li>
+                                {% endif %}
+                                {% if request.user.is_authenticated %}
+                                <li><a href="{% url 'logout' %}" style="color: #F28123;">Logout</a></li>
+                                {% else %}
+                                <li><a href="{% url 'login' %}" style="color: #F28123;">Login</a></li>
+                                <li><a href="{% url 'register' %}" style="color: #F28123;">Register</a></li>
+                                {% endif %}
+                            {% comment %} </ul>
+                        </li> {% endcomment %}
+                            {% comment %} <li><a href="{% url 'pages' %}">Pages</a>
+                            
+                                <ul class="sub-menu">
+                                    <li><a href="{% url '404 page' %}">404 page</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="checkout.html">Check Out</a></li>
+                                    <li><a href="{% url 'Contact' %}">Contact</a></li>
+                                    <li><a href="news.html">News</a></li>
+                                    <li><a href="shop.html">Shop</a></li>
+                                </ul>
+                            </li> {% endcomment %}
+                            {% comment %} <li><a href="news.html">News</a>
+                                <ul class="sub-menu">
+                                    <li><a href="news.html">News</a></li>
+                                    <li><a href="single-news.html">Single News</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li> {% endcomment %}
+                            {% comment %} <li><a href="shop.html">Shop</a>
+                                <ul class="sub-menu">
+                                    <li><a href="shop.html">Shop</a></li>
+                                    <li><a href="checkout.html">Check Out</a></li>
+                                    <li><a href="single-product.html">Single Product</a></li>
+                                    <li><a href="cart.html">Cart</a></li>
+                                </ul>
+                            </li> {% endcomment %}
+                            {% comment %} <div class="col-lg-3">
+                                <div class="header__right">
+                                    <div class="header__right__auth">
+                                        {% if request.user.is_authenticated %}
+                                        <a href="{% url 'logout' %}">Logout</a>
+                                        {% else %}
+                                        <a href="{% url 'login' %}">Login</a>
+                                        <a href="{% url 'register' %}">Register</a>
+                                        
+                                        {% endif %} {% endcomment %}
+
+                            <li>
+                                <div class="header-icons">
+                                    <a class="shopping-cart" href="{% url 'cart' %}" style="currentColor"><i class="fas fa-shopping-cart"></i></a>
+                                   <a class="Wishlist" href="{% url 'wishlist' %}" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+									<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+								  </svg></a>
+                                    <a class="mobile-hide search-bar-icon" href="#" style="currentColor"><i class="fas fa-search"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                    <div class="mobile-menu"></div>
+                    <!-- menu end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end header -->
+
+<!-- search area -->
+{% comment %} <div class="search-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <span class="close-btn"><i class="fas fa-window-close"></i></span>
+                <div class="search-bar">
+                    <div class="search-bar-tablecell">
+                        <h3>Search For:</h3>
+                        <input type="text" placeholder="Search" name="keyword">
+                        <button type="submit">Search <i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+<!-- end search area -->
+{% comment %} <div class="hero_search_form d-flex" style="justify-content: space-around">
+    <form action="{% url 'search' %}" method="GET">
+       <div class="d-flex  mb-3" style="justify-content: space-around">
+        <div>
+            <input type="text" class="form-control" placeholder="Search hear" name="keyword">
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit">SEARCH</button>
+        </div>
+       </div>
+       
+    </form>
+</div> {% endcomment %}

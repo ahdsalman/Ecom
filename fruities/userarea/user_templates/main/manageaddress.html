@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <div class="container mt-3">
+    <div class="card p-3 py-3 mt-3 card-1 text-center">
+      {% for i in add %}
+        <div class="p-3 card-2"> 
+          <div class="p-3 card-child">
+            <div class="d-flex flex-row align-items-center">
+              <span class="circle">
+                <i class="fa fa-home"></i>
+              </span>
+              <div class="d-flex flex-column ms-3">
+                <h6 class="fw-bold">{{i.first_name}}</h6>
+                <span>{{i.order_address}}<br>{{i.zip_code}}</span>
+              </div>
+              <a href="{% url 'editaddress' i.id %}">
+                <button style="background-color: burlywood; border-color: yellowgreen;">Edit</button>
+              </a>
+              <a href="{% url 'deleteaddress' i.id %}" onclick="return confirm('Are You Sure?')">
+                <button style= "background-color: red; border-color: yellowgreen;" >Delete</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br><br>
+  <br>
+  <br>
+  <br>
+  <br>
+{% endblock %}

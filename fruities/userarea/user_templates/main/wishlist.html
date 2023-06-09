@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="cart-buttons">
+    <a class="boxed-btn" style="margin-left: 200px;margin-top: 120px;">Wishlist</a>
+    
+</div>
+<br>
+{% comment %} <div class="hero_search_form d-flex" style="justify-content: space-around">
+    <form action="{% url 'search' %}" method="GET">
+       <div class="d-flex  mb-3" style="justify-content: space-around">
+        <div>
+            <input type="text" class="form-control" placeholder="Search hear" name="keyword">
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit">SEARCH</button>
+        </div>
+       </div>
+       
+    </form>
+</div> {% endcomment %}
+<div class="row">
+    {% for x in wishlist_items %}
+<div class="col-lg-4 col-md-6 text-center ">
+    
+    <div class="single-product-item">
+        <div class="product-image">
+            <a href="single-product.html"><img src="{{x.product.image_1.url}}" alt=""></a>
+        </div>
+        <h3>{{x.product_name}}</h3>
+        <p class="product-price"><span>Per Kg</span>$ {{x.product.price}}</p>
+        {% comment %} <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> {% endcomment %}
+        <a href="{% url 'details' x.product.id %}" class="cart-btn"> Product Details</a>
+        <a href="{% url 'remove_wishlistitem' x.product.id x.id %}" class="cart-btn">Remove</a></td>
+
+    </div>
+    {% comment %} <td class="product-total"> {% endcomment %}
+</div>
+{% endfor %}
+</div>
+
+{% comment %} <div class="pagination" style="margin-left: 10px;">
+    <span class="step-links">
+        {% if pro.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ pro.previous_page_number }}">&lsaquo; previous</a>
+        {% endif %}
+
+        <span class="current-page">
+            Page {{ pro.number }} of {{ pro.paginator.num_pages }}.
+        </span>
+
+        {% if pro.has_next %}
+            <a href="?page={{ pro.next_page_number }}">next &rsaquo;</a>
+            <a href="?page={{ pro.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+ {% endcomment %}
+
+{% endblock  %}

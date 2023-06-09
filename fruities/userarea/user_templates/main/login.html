@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+	{% block content %}
+
+    <style>.login_box_img {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		height: 100%;
+		
+	  }
+	  
+	  .card-img-overlay {
+		margin-top: auto;
+		
+	  }
+	  </style>
+	<br><br><br><br>
+	<section class="login_box_area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 text-center">
+					<div class="login_box_img">
+						<img class="img-fluid" src="{% static 'img/login-1.jpg' %}" alt="">
+						<div class="card-img-overlay ">
+							<h4>New to our website?</h4>
+							<p>Welcome to our website! To start using our services, please register by clicking on the "Sign up here" button and filling out the required information.</p>
+							<a class="primary-btn" href="{% url 'register' %}">Sign up here</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="col-lg-6">
+					
+					<div class="login_form_inner">
+						<br/>
+				<br/>
+				{% for message in messages %}
+				<div class="alert alert-warning col-8 shadow mx-auto text-danger" role="alert">
+				  {{message}}
+				</div>
+				  {% endfor %}
+				<br/>
+						<h3>Log in to enter</h3>
+						<br>
+						<form class="row login_form" action="{% url 'login'%}" method="post" id="contactForm" >
+						 {% csrf_token %} 
+	
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="password" class="form-control"  name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+							</div>
+							<div class="col-md-12 form-group">
+								<button type="submit" value="submit" class="primary-btn">Log In</button>
+								<a href="{% url 'forgetpassword' %}">Forgot Password?</a>
+							</div>
+	
+						   
+						
+						
+						
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<br><br><br><br>
+    
+
+
+
+
+
+
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> {% endcomment %}
+{% endblock  %}

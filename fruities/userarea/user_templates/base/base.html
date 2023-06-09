@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<!-- title -->
+	<title>Fruities</title>
+	
+	<!-- Ajax -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="{%static 'img/favicon.png'%}">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css'%}">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
+	<!-- animate css -->
+	<link rel="stylesheet" href="{% static 'css/animate.css'%}">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="{% static 'css/meanmenu.min.css'%}">
+	<!-- main style -->
+	<link rel="stylesheet" href="{% static 'css/main.css'%}">
+	<!-- responsive -->
+	<link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+	
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+
+
+</head>
+<body>
+
+
+{% include 'extends/header.html'%}
+
+{% block content %}
+
+{% endblock %}
+
+{% include 'extends/footer.html' %}
+
+<!-- jquery -->
+<script src="{% static 'js/jquery-1.11.3.min.js'%}"></script>
+<!-- bootstrap -->
+<script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
+<!-- count down -->
+<script src="{% static 'js/jquery.countdown.js'%}"></script>
+<!-- isotope -->
+<script src="{% static 'js/jquery.isotope-3.0.6.min.js'%}"></script>
+<!-- waypoints -->
+<script src="{% static 'js/waypoints.js'%}"></script>
+<!-- owl carousel -->
+<script src="{% static 'js/owl.carousel.min.js'%}"></script>
+<!-- magnific popup -->
+<script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+<!-- mean menu -->
+<script src="{% static 'js/jquery.meanmenu.min.js'%}"></script>
+<!-- sticker js -->
+<script src="{% static 'js/sticker.js'%}"></script>
+<!-- main js -->
+<script src="{% static 'js/main.js'%}"></script>
+
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script>
+	alertify.set('notifier','position', 'top-right');
+	{% for msg in messages %}
+		alertify.success('{{ msg }}');
+	{% endfor %}
+	
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
