@@ -83,7 +83,7 @@ DATABASES = {
         'NAME':'fruities',
         'USER': 'mywebApp',
         'PASSWORD':'mywebapp',
-        'HOST':'backendcourse.ck4osjpuionc.eu-north-1.rds.amazonaws.com',
+        'HOST':'backendcourse.c2wcjpmsgdfy.ap-south-1.rds.amazonaws.com',
         'PORT':'5432',
     }
 }
@@ -151,3 +151,15 @@ EMAIL_USE_TLS=True
 
 API_KEY ='rzp_test_kkh8FbBX7EFd5m'
 RAZORPAY_SECRET_KEY ='hDZHEEZBDsIc7BQpIrotisdr'
+
+
+
+AWS_ACCESS_KEY_ID = 'AKIAUGIRMFTC74QE75WB'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'mybackendcourse'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'ap-south-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
