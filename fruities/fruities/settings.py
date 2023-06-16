@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'whitenoise.runserver_nostatic',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -156,7 +158,7 @@ RAZORPAY_SECRET_KEY ='hDZHEEZBDsIc7BQpIrotisdr'
 
 AWS_ACCESS_KEY_ID = 'AKIAUGIRMFTC74QE75WB'
 AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'mybackendcourse'
+AWS_STORAGE_BUCKET_NAME = 'minebackendcourse'
 AWS_S3_SIGNATURE_NAME = 's3v4',
 AWS_S3_REGION_NAME = 'ap-south-1'
 AWS_S3_FILE_OVERWRITE = False
