@@ -33,8 +33,8 @@
                             </li>
                         {% comment %} <li><a href="#">Pages</a>
                             <ul class="sub-menu"> {% endcomment %}
-                                <li><a href="{% url 'about' %}" style="color: #F28123;">About</a></li>
-                                <li><a href="{% url 'contact' %}" style="color: #F28123;">Contact</a></li>
+                                {% comment %} <li><a href="{% url 'about' %}" style="color: #F28123;">About</a></li> {% endcomment %}
+                                {% comment %} <li><a href="{% url 'contact' %}" style="color: #F28123;">Contact</a></li> {% endcomment %}
                                 <li><a href="{% url 'product' 0 %}" style="color: #F28123;">Shop</a></li>
                                 <li><a href="{% url 'myaccount' %}" style="color: #F28123;">Profile</a></li>
                                 {% if request.user.is_superuser %}
