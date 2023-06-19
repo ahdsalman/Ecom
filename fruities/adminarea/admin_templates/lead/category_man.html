@@ -78,6 +78,9 @@
 </aside><!-- End Sidebar-->
 <br>
 <main class="main" id="main">
+  {% for message in messages %}
+  <div class="alert alert-warning col-8 shadow mx-auto text-danger" role="alert">{{message}}</div>
+  {% endfor %}
 <div class="container mt-3" style="min-height: 33rem;">
   <h2 class="text-center text-blackz">Categories</h2>
   <div class="d-flex justify-content-between">

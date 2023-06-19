@@ -92,12 +92,12 @@
                                    <a class="Wishlist" href="{% url 'wishlist' %}" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
 									<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 								  </svg></a>
-                                    <a class="mobile-hide search-bar-icon" href="#" style="currentColor"><i class="fas fa-search"></i></a>
+                                    <a class="mobile-hide search-bar-icon" href="{% url 'product' 0 %}" style="currentColor"><i class="fas fa-search"></i></a>
                                 </div>
                             </li>
                         </ul>
                     </nav>
-                    <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                    <a class="mobile-show search-bar-icon" href="{% url 'product' 0 %}"><i class="fas fa-search"></i></a>
                     <div class="mobile-menu"></div>
                     <!-- menu end -->
                 </div>

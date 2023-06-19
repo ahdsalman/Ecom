@@ -77,6 +77,9 @@
 <br>
 
 <main class="main" id="main">
+  {% for message in messages %}
+  <div class="alert alert-warning col-8 shadow mx-auto text-danger" role="alert">{{message}}</div>
+  {% endfor %}
 <div class="card shadow">
     <div class="card-body">
         <h5 class="p-2" style="border-bottom: 2px solid orange;">All Registered Users</h5>
