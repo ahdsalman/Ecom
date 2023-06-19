@@ -30,7 +30,7 @@
             <a href="single-product.html"><img src="{{i.image_1.url}}" alt=""></a>
         </div>
         <h3>{{i.product_name}}</h3>
-        <p class="product-price"><span>Per Kg</span>$ {{i.price}}</p>
+        <p class="product-price"><span>Per Kg</span>RS {{i.price}}</p>
         {% comment %} <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> {% endcomment %}
         <a href="{% url 'details' i.id %}" class="cart-btn"> Product Details</a>
     </div>

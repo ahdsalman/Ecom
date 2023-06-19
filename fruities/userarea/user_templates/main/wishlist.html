@@ -31,7 +31,7 @@
             <a href="single-product.html"><img src="{{x.product.image_1.url}}" alt=""></a>
         </div>
         <h3>{{x.product_name}}</h3>
-        <p class="product-price"><span>Per Kg</span>$ {{x.product.price}}</p>
+        <p class="product-price"><span>Per Kg</span>RS {{x.product.price}}</p>
         {% comment %} <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> {% endcomment %}
         <a href="{% url 'details' x.product.id %}" class="cart-btn"> Product Details</a>
         <a href="{% url 'remove_wishlistitem' x.product.id x.id %}" class="cart-btn">Remove</a></td>
