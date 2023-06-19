@@ -118,24 +118,24 @@
             	<!--Image Column-->
             	<div class="image-column col-lg-6">
                 	<div class="image">
-                    	<div class="price-box">
+                    	{% comment %} <div class="price-box">
                         	<div class="inner-price">
                                 <span class="price">
                                     <strong>30%</strong> <br> off per kg
                                 </span>
                             </div>
-                        </div>
+                        </div> {% endcomment %}
                     	<img src="{% static 'img/a.jpg'%}" alt="">
                     </div>
                 </div>
                 <!--Content Column-->
                 <div class="content-column col-lg-6">
-					<h3><span class="orange-text">Deal</span> of the month</h3>
-                    <h4>Hikan Strwaberry</h4>
-                    <div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div>
+					<h3><span class="orange-text">Health Benefits</span> of Strwaberry</h3>
+                    <h4>Strwaberry</h4>
+                    <div class="text"> Consuming strawberries can have several health benefits. The high vitamin C content helps boost the immune system and promotes healthy skin. The antioxidants present in strawberries have been associated with reducing inflammation and oxidative stress, which may help lower the risk of chronic diseases.</div>
                     <!--Countdown Timer-->
-                    <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
-                	<a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    {% comment %} <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
+                	<a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a> {% endcomment %}
                 </div>
             </div>
         </div>
@@ -143,7 +143,7 @@
     <!-- end cart banner section -->
 
 	<!-- testimonail-section -->
-	<div class="testimonail-section mt-150 mb-150">
+	{% comment %} <div class="testimonail-section mt-150 mb-150">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1 text-center">
@@ -194,7 +194,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> {% endcomment %}
 	<!-- end testimonail-section -->
 	
 	<!-- advertisement section -->
@@ -208,11 +208,11 @@
 				</div>
 				<div class="col-lg-6 col-md-12">
 					<div class="abt-text">
-						<p class="top-sub">Since Year 1999</p>
-						<h2>We are <span class="orange-text">Fruitkha</span></h2>
-						<p>Etiam vulputate ut augue vel sodales. In sollicitudin neque et massa porttitor vestibulum ac vel nisi. Vestibulum placerat eget dolor sit amet posuere. In ut dolor aliquet, aliquet sapien sed, interdum velit. Nam eu molestie lorem.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p>
-						<a href="about.html" class="boxed-btn mt-4">know more</a>
+						<p class="top-sub">Since Year 2023</p>
+						<h2>We are <span class="orange-text">Fruities</span></h2>
+						<p> Fruits are packed with essential vitamins, minerals, and dietary fiber. They provide a wide range of nutrients that are important for our body's proper functioning, including vitamin C, potassium, folate, and antioxidants.</p>
+						<p>Many fruits, such as berries, citrus fruits, and apples, are associated with a reduced risk of heart disease. They contain heart-healthy nutrients like fiber, potassium, </p>
+						{% comment %} <a href="about.html" class="boxed-btn mt-4">know more</a> {% endcomment %}
 					</div>
 				</div>
 			</div>
@@ -223,15 +223,15 @@
 	<!-- shop banner -->
 	<section class="shop-banner">
     	<div class="container">
-        	<h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
-            <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
-            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
+        	<h3>We are sale the  <span class="orange-text">Vitamin</span> <br>Fruits</h3>
+            {% comment %} <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div> {% endcomment %}
+            <a href="{% url 'product' 0 %}" class="cart-btn">Shope Now</a>
         </div>
     </section>
 	<!-- end shop banner -->
 
 	<!-- latest news -->
-	<div class="latest-news pt-150 pb-150">
+	{% comment %} <div class="latest-news pt-150 pb-150">
 		<div class="container">
 
 			<div class="row">
@@ -293,7 +293,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> {% endcomment %}
 	<!-- end latest news -->
 
 	<!-- logo carousel -->
