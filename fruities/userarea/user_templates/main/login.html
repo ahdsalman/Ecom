@@ -2,34 +2,72 @@
 {% load static %}
 
 	{% block content %}
+	<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.login_box_img {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			height: 100%;
+		}
 
-    <style>.login_box_img {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		height: 100%;
+		.card-img-overlay {
+			margin-top: auto;
+		}
+
+		.primary-btn {
+			display: inline-block;
+			padding: 10px 20px;
+			font-size: 16px;
+			text-align: center;
+			text-decoration: none;
+			color: #4CAF50;
+			border-radius: 4px;
+			transition: color 0.3s;
+		}
+
+		.primary-btn:hover {
+			color: #45a049;
+		}
 		
-	  }
-	  
-	  .card-img-overlay {
-		margin-top: auto;
-		
-	  }
-	  </style>
-	<br><br><br><br>
+		@media screen and (max-width: 767px) {
+			.login_box_img {
+				height: auto;
+			}
+
+			.card-img-overlay {
+				text-align: center;
+				padding: 20px;
+			}
+
+			.primary-btn {
+				width: 100%;
+			}
+		}
+	</style>
+	<br><br><br><br><br><br>
+</head>
+<body>
 	<section class="login_box_area section_gap">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 text-center">
+				<div class="col-lg-6" >
 					<div class="login_box_img">
-						<img class="img-fluid" src="{% static 'img/login-1.jpg' %}" alt="">
-						<div class="card-img-overlay ">
+						<img class="img-fluid" src="{% static 'img/signup19.jpeg' %}" alt="">
+						<div class="hover">
 							<h4>New to our website?</h4>
 							<p>Welcome to our website! To start using our services, please register by clicking on the "Sign up here" button and filling out the required information.</p>
 							<a class="primary-btn" href="{% url 'register' %}">Sign up here</a>
 						</div>
 					</div>
 				</div>
+	
+</body>
+</html>
+	
 				
 				
 				<div class="col-lg-6">
@@ -46,7 +84,7 @@
 						<h3>Log in to enter</h3>
 						<br>
 						<form class="row login_form" action="{% url 'login'%}" method="post" id="contactForm" >
-						 {% csrf_token %} 
+						  {% csrf_token %} 
 	
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
