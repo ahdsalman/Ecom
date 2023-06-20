@@ -86,7 +86,7 @@
                    
                     <div class="col-lg-6">
                         <div class="checkout__order">
-                            {% csrf_token %}
+                            {% comment %} {% csrf_token %} {% endcomment %}
                             <h5>Your order</h5>
                             <div class="checkout_order_product">
                                 {% comment %} <ul class="list">
