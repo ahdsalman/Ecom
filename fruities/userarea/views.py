@@ -779,9 +779,6 @@ def deleteaddress(request,id):
     dele.delete()
     return redirect(manageaddress)
 
-from django.views.decorators.csrf import csrf_protect
-
-@csrf_protect
 def login(request):
     if request.method=='POST':
         user_name=request.POST['username']
