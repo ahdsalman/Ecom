@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 {% load static %}
-{% comment %} <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -8,49 +8,78 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
+  <style>
+    .login_box_img {
+      margin-bottom: 20px;
+    }
+    .login_form_inner {
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+    .login_form_inner h3 {
+      margin-bottom: 20px;
+    }
+    .login_form_inner .form-group {
+      margin-bottom: 15px;
+    }
+    .login_form_inner .form-group input {
+      padding: 10px;
+    }
+    .login_form_inner .form-group button {
+      padding: 10px 20px;
+    }
+    .login_form_inner .form-group .text-dark {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    .login_form_inner .form-group .text-dark:hover {
+      color: #6c757d;
+    }
+  </style>
 </head>
-<body> {% endcomment %}
-{% block content %}
-{% if otp %}
+<body>
+  {% block content %}
+  {% if otp %}
   <br><br><br><br><br>
   <section class="login_box_area section_gap">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
           <div class="login_box_img text-center">
             <img class="img-fluid" src="{% static 'img/signup-2.jpg' %}" alt="">
             <div class="card-img-overlay">
               <h4>Already have an account?</h4>
-              <p>If you have previously signed up for the service and can skip the registration process. Simply log in with your existing credentials to access your account and its features.</p>
+              <p>If you have previously signed up for the service, you can skip the registration process. Simply log in with your existing credentials to access your account and its features.</p>
               <a class="primary-btn" href="{% url 'login' %}">Login here</a>
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-8">
           <div class="login_form_inner">
             <br><br><br><br><br><br><br><br>
             {% for message in messages %}
-            <div class="alert alert-warning col-8 shadow mx-auto text-danger" role="alert">
-              {{message}}
+            <div class="alert alert-warning col-12 shadow text-danger" role="alert">
+              {{ message }}
             </div>
             {% endfor %}
-            <br>
+
             <h3>OTP Verification</h3>
             <form action="" method="post">
               {% csrf_token %}
+
               <div class="form-group">
-                <input type="hidden" name="usr" value="{{usr.username}}">
+                <input type="hidden" name="usr" value="{{ usr.username }}">
               </div>
-              <div class="form-group" style="max-width:300px; margin-left:auto; margin-right:auto;">
+              <div class="form-group">
                 <input type="text" class="form-control" id="name" name="otp" placeholder="Enter Your OTP" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your OTP'">
               </div>
-              <div class="form-group text-center">
-                <button type="submit" value="submit" class="primary-btn border-0 btn-sm">Verify</button>
+              <div class="form-group">
+                <button type="submit" value="submit" class="primary-btn border-0 btn-sm mx-auto d-block">Verify</button>
               </div>
-              <div class="row justify-content-center my-2 px-5">
+              <div class="form-group text-center my-2">
                 <i>
                   <a href="{% url 'register' %}?username={{ usr.username }}" class="text-dark" onclick="ReSendOTP('{{ usr.username }}', 'resendOTPmess')">
-                    <i id="resendOTPmess">Resend</i> OTP
+                    <i id="resendOTPmess">Resend OTP</i>
                   </a>
                 </i>
               </div>
@@ -60,56 +89,63 @@
       </div>
     </div>
   </section>
-  <!-- End OTP Verification-->
-{% else %}
-  <!--================Login Box Area =================-->
+  {% else %}
   <br><br><br><br><br><br>
-  <section style="background-color: gray;" class="login_box_area section_gap">
+  <section class="login_box_area section_gap">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 text-center">
-          <div class="login_box_img">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+          <div class="login_box_img text-center">
             <img class="img-fluid" src="{% static 'img/signup-2.jpg' %}" alt="">
             <div class="card-img-overlay">
               <h4>Already have an account?</h4>
-              <p>If you have previously signed up for the service and can skip the registration process. Simply log in with your existing credentials to access your account and its features.</p>
+              <p>If you have previously signed up for the service, you can skip the registration process. Simply log in with your existing credentials to access your account and its features.</p>
               <a class="primary-btn" href="{% url 'login' %}">Login here</a>
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-8">
           <div class="login_form_inner">
             {% for message in messages %}
-            <div class="alert alert-warning col-8 shadow mx-auto text-danger" role="alert">
-              {{message}}
+            <div class="alert alert-warning col-12 shadow text-danger" role="alert">
+              {{ message }}
             </div>
             {% endfor %}
+
             <h3>Sign up</h3>
             <form action="" method="post">
               {% csrf_token %}
+            
               <div class="form-group">
-                {{form.username}}
+                {{ form.username }}
               </div>
               <div class="form-group">
-                {{form.email}}
+                {{ form.email }}
               </div>
               <div class="form-group">
-                {{form.password1}}
+                {{ form.password1 }}
               </div>
               <div class="form-group">
-                {{form.password2}}
+                {{ form.password2 }}
               </div>
-              <div class="form-group text-center">
-                <button type="submit" value="submit" class="primary-btn border-0">Sign up</button>
+            
+              <div class="col-md-12 form-group">
+                <button type="submit" value="submit" class="btn btn-primary" style="margin-left: 100px; background-color: #F28123;" onmouseover="this.style.backgroundColor='#FFA500';" onmouseout="this.style.backgroundColor='#F28123';">Sign up</button>
+
+
               </div>
             </form>
+            
           </div>
         </div>
       </div>
     </div>
   </section>
-{% endif %}
-{% endblock %}
+  {% endif %}
+  {% endblock %}
+</body>
+</html>
+
 
   {% comment %} <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
