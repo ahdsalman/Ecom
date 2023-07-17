@@ -25,7 +25,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.views.decorators.cache import cache_control
 from django.template.loader import get_template
-import xlwt
+# import xlwt
 # from xhtml2pdf import pisa
 # from io import BytesIO
 
